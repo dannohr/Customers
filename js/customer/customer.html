@@ -1,0 +1,40 @@
+<h2>Customer Search Page</h2>
+<hr>
+<br>
+
+<input type="text" name = "input" ng-model = "custsearch" placeholder = "Enter Customer Name">
+
+<button ng-click ="getCustomers(custsearch)">Search</button>
+<button ng-click ="getAllCustomers()">Load All Customers</button>
+
+
+<p>Parameter used for filter: {{custsearch}} </p>
+
+<div class="customer-row">
+    
+    <table class = "customer-search-table">
+        <tr class = "customer-search-rows">
+            <th class = "customer-search-rows">Edit</th>
+            <th class = "customer-search-rows"> Name</th>
+            <th class = "customer-search-rows">ID</th>
+            <th class = "customer-search-rows">Lock Vers</th>
+        </tr>
+
+        <tr class = "customer-search-rows" ng-repeat="customer in customers | filter: {'name':  custsearch} | orderBy: 'name' ">
+            <td class = "customer-search-rows"><img src="/assets/editicon.png" alt="" class = "edit-button" ui-sref="customerdetails({id: customer.id})"></td>
+            <td class = "customer-search-rows">{{customer.name}}</td>
+            <td class = "customer-search-rows">{{customer.id}}</td>
+            <td class = "customer-search-rows">{{customer.lock_version}}</td>
+        </tr>
+    </table>
+    
+
+
+    <!-- <div ng-repeat="customer in customers"> 
+        <img src="/assets/editicon.png" alt="" class = "edit-button">
+        {{ customer.id }} {{customer.name}}  {{ customer.lock_version }}
+        <hr>
+
+    </div> -->
+
+</div>
