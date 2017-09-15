@@ -6,9 +6,7 @@
 
 <button ng-click ="getCustomers(custsearch)">Search</button>
 <button ng-click ="getAllCustomers()">Load All Customers</button>
-
-
-<p>Parameter used for filter: {{custsearch}} </p>
+<button ui-sref="customerdetails()">Create New Customer</button>
 
 <div class="customer-row">
     
@@ -18,13 +16,18 @@
             <th class = "customer-search-rows"> Name</th>
             <th class = "customer-search-rows">ID</th>
             <th class = "customer-search-rows">Lock Vers</th>
+            <th class = "customer-search-rows">City</th>
+            <th class = "customer-search-rows">Delete</th>
+
         </tr>
 
         <tr class = "customer-search-rows" ng-repeat="customer in customers | filter: {'name':  custsearch} | orderBy: 'name' ">
             <td class = "customer-search-rows"><img src="/assets/editicon.png" alt="" class = "edit-button" ui-sref="customerdetails({id: customer.id})"></td>
-            <td class = "customer-search-rows">{{customer.name}}</td>
-            <td class = "customer-search-rows">{{customer.id}}</td>
-            <td class = "customer-search-rows">{{customer.lock_version}}</td>
+            <td class = "customer-search-rows">{{ customer.name }}</td>
+            <td class = "customer-search-rows">{{ customer.id }}</td>
+            <td class = "customer-search-rows">{{ customer.lock_version }}</td>
+            <td class = "customer-search-rows">{{ customer['main_location[town]'] }}</td>
+            <td class = "customer-search-rows"><img src="/assets/deleteicon.png" alt="" class = "edit-button" ng-click ="deleteCustomer(customer.id,customer.lock_version);"></td>
         </tr>
     </table>
     

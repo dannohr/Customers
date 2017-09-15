@@ -3,17 +3,30 @@
 <br>
 
 
-
+<!-- 
         Linked Customer ID: {{ customersDetails.id }} <br>
         
-        Linked Customer Name: {{ customersDetails.name }} <br>
+        Linked Customer Name: {{ customersDetails.name }} <br> -->
 
         
 
 <form>
         Company Name: <input type="text" name="name" ng-model="customersDetails.name"><br>
-        Company ID: <input type="text" name="id"  ng-model="customersDetails.id">
+        <!-- City: <input type="text" name="city" ng-model="customer['main_location[town]']"><br> -->
+        City: <input type="text" name="city" ng-model="city"><br>
+        Company ID: <input type="text" name="id"  ng-model="customersDetails.id"><br>
+        Lock version: <input type="text" name="lock_version"  ng-model="customersDetails.lock_version">
 </form>
         
-        
+
+
+<!-- <button ng-click ="updateCustomer(id, lock_version)">Update</button> -->
+<button ng-click ="updateCustomer(customersDetails.id,customersDetails.lock_version,customersDetails.name);">Update</button>
+
+<button ng-click ="addNewCustomer(customersDetails.name);">Save New</button>
+
+<p>
+</p>
+
+<a href="/#/customer/customer">Back to all customers</a>
 

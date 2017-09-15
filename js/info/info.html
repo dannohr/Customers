@@ -1,1 +1,19 @@
-Info Sample Template
+<h1>Workbooks API Reference</h1>
+<ul>
+    <li>
+        <a href="https://docs.google.com/document/d/1Heioa9fXtEnfQ32MtvdwMRYPMeeSeQU8zjK0IvlGfWI/edit" target="_blank">Workbooks API Developers Guide</a>
+    </li>
+    <li>
+        <a href="https://secure.workbooks.com/resources/=QzM/API-META-DATA.html" target="_blank">API Data Reference</a>
+    </li>
+</ul>
+<hr>
+<h2>Methods:</h2>
+    <h3>Update</h3>
+    <p>To modify a record you need to send a request marked with __method[]=<b>PUT</b> and specify the id and the lock_version of that record plus a set of field values.</p>
+
+    <h3>Create</h3>
+    <p>To create a record you need to send a request marked with __method[]=<b>POST</b> and specify id=0 and lock_version=0 plus a set of fields to put in the record.</p>
+
+    <h3>Delete</h3>
+    <p>To delete a record you need to send a request marked with __method[]=<b>DELETE</b> and specify the id and the lock_version of a record to be deleted.</p>
