@@ -25,6 +25,12 @@ angular
                 controller: 'custDetailsCtrl'
             })
 
+            .state("newcustomer", {   //this isn't doing anything.
+                url: "/customer/new",   
+                templateUrl: '/js/customer/customerdetails.html',
+                controller: 'custDetailsCtrl'
+            })
+
             .state("product", {
                 url: "/product/:product",   
                 templateUrl: '/js/product/product.html',
@@ -36,5 +42,15 @@ angular
                 templateUrl: '/js/info/info.html'
             })
 
+            .state("map", {   //this isn't doing anything.
+            url: "/map",   
+            templateUrl: '/js/map/map.html',
+            controller: 'mapCtrl'
+        })
+
             // Each State is a new page (view)
     })
+
+
+    
+    function initMap() {} // now it IS a function and it is in global

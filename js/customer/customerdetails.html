@@ -3,7 +3,7 @@
 <br>
       
 
-<form>
+<form name="editForm" ng-init="reset()" ng-submit="submitForm()">
         Company Name: <input type="text" name="name" ng-model="customersDetails.name"><br>
         Address: <input type="text" name="address" ng-model="address"><br>
         City: <input type="text" name="city" ng-model="city"><br>
@@ -31,5 +31,5 @@
 
 <button ng-click ="addNewCustomer(customersDetails.name);">Save New</button>
 
-<button ui-sref="customerdetails()">Create New Customer</button>
+<button ui-sref="newcustomer()">Create New Customer</button>
 <a href="/#/customer/detail">Create New Customer</a>

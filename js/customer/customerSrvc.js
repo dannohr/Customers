@@ -14,20 +14,24 @@ angular.module('app').service('customerSrvc', function($http) {
     var self = this;
 
     var apiMethod = ''
+    
 
  
-    var allCustoemrs = {};
+   
     
     // Return all customers
     this.getAllCustomers = function() {
         return $http.get(baseUrl + apiKey).then(function(response){
           self.customers = response.data
-          return self.customers
+          // self.allCustoemrs = response.data
+          return response.data
 
       })
     };
 
 
+
+    
 
     // Return customers filtered by name
     this.getCustomers = function(filterStr) {
@@ -47,13 +51,9 @@ angular.module('app').service('customerSrvc', function($http) {
         self.customerDetail = response.data
         return self.customerDetail
     })
-  }; 
-
-
-
-
-
-
+  };
+  
+    
 
 
   var updateCustomerBaseUrlHead = 'https://secure.workbooks.com/crm/organisations.api?api_key=49591-ebf97-35abc-82f3f-e2179-97b60-eb671-5832c&client=api&api_version[]=1&lock_version[]='
@@ -61,11 +61,21 @@ angular.module('app').service('customerSrvc', function($http) {
   var updateCustomerBase3 = '&name[]='
   var updateCustomerBase4 = '&_ff[]=id&_ft[]=eq&_fc[]='
   var updateCustomerBaseUrlTail = '&_method=PUT'
-  
+  var updateAddress = '&main_location[street_address][]='
+  var updateCity = '&main_location[town][]='  
+  var updateState = '&main_location[county_province_state][]='  
+  var updateZip = '&main_location[postcode][]='  
+  var updatePhone = '&main_location[telephone][]='
+
+
+
     // Update Customer
-    this.updateCustomer = function(id, lock_version, name) {
-      var buildUrl = updateCustomerBaseUrlHead + lock_version + updateCustomerBase2 + id + updateCustomerBase3 + name + updateCustomerBase4 + id + updateCustomerBaseUrlTail;
-      console.log("Update Customer ID: " + id + " with lock version: " + lock_version + ' to name ' + name + ' (log from service)')
+    this.updateCustomer = function(custForApi) {
+      var buildUrl = updateCustomerBaseUrlHead + custForApi.lock_version + updateCustomerBase2 + custForApi.id + updateCustomerBase3 + 
+                     custForApi.name + updateCustomerBase4 + custForApi.id + updateCustomerBaseUrlTail + updateAddress + custForApi.address + 
+                     updateCity + custForApi.city + updateState + custForApi.state + updateZip + custForApi.zip + updatePhone + custForApi.phone;
+      
+                     console.log("Update Customer ID: " + custForApi.id + " with lock version: " + custForApi.lock_version + ' to name ' + custForApi.name + ' (log from service)' + updatePhone + custForApi.phone)
        return $http({
          method: "POST",
          url: buildUrl,

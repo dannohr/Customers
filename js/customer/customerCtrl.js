@@ -7,18 +7,24 @@ angular.module('app').controller('customerCtrl', function($scope,  $stateParams,
       $scope.customerDetail = [];
            
 
-      customerSrvc.getAllCustomers().then (function(response) {
+      //load when page opens
+      $scope.getName = customerSrvc.getAllCustomers().then (function(response) {
         $scope.customers = response.data;
         console.log($scope.customers)
+        return $scope.customers
       })
+      console.log($scope.customers)
 
 
+
+
+
+      //runs when button clicked
       $scope.getAllCustomers = function() {
         $scope.custsearch = ''  //clear customer filter input on webpage
         customerSrvc.getAllCustomers().then (function(response) {
           $scope.customers = response.data;
           console.log($scope.customers)
-          
         })
       }
       
