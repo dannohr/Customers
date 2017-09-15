@@ -1,32 +1,35 @@
 <h2>Customer Details Page</h2>
 <hr>
 <br>
-
-
-<!-- 
-        Linked Customer ID: {{ customersDetails.id }} <br>
-        
-        Linked Customer Name: {{ customersDetails.name }} <br> -->
-
-        
+      
 
 <form>
         Company Name: <input type="text" name="name" ng-model="customersDetails.name"><br>
-        <!-- City: <input type="text" name="city" ng-model="customer['main_location[town]']"><br> -->
+        Address: <input type="text" name="address" ng-model="address"><br>
         City: <input type="text" name="city" ng-model="city"><br>
-        Company ID: <input type="text" name="id"  ng-model="customersDetails.id"><br>
-        Lock version: <input type="text" name="lock_version"  ng-model="customersDetails.lock_version">
+        State: <input type="text" name="state" ng-model="state"><br>
+        Zip: <input type="text" name="zip" ng-model="zip"><br>
+        Phone: <input type="text" name="phone" ng-model="phone"><br>
 </form>
         
 
+<button ng-click="save(customersDetails.id,customersDetails.lock_version,customersDetails.name)">
+        <span ng-show="customersDetails.id">Update Existing</span>
+        <span ng-show="!customersDetails.id">Save New</span>
+</button>
 
-<!-- <button ng-click ="updateCustomer(id, lock_version)">Update</button> -->
+
+<a href="/#/customer/customer">Back to all customers</a>
+<br>
+<br>
+<br>
+<br>
+<p class = "small-text">Company ID: {{customersDetails.id}} and Lock Version {{customersDetails.lock_version}}</p>
+<p class = "small-text">Old/Unused/Not Working Things:</p>
+
 <button ng-click ="updateCustomer(customersDetails.id,customersDetails.lock_version,customersDetails.name);">Update</button>
 
 <button ng-click ="addNewCustomer(customersDetails.name);">Save New</button>
 
-<p>
-</p>
-
-<a href="/#/customer/customer">Back to all customers</a>
-
+<button ui-sref="customerdetails()">Create New Customer</button>
+<a href="/#/customer/detail">Create New Customer</a>

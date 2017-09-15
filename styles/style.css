@@ -56,3 +56,7 @@ table {
 }
 
 tr:nth-child(even){background-color: #E0E0E0}
+
+.small-text {
+    font-size: 12px
+}
