@@ -16,7 +16,7 @@ angular.module('app').service('customerSrvc', function($http) {
     var apiMethod = ''
     
 
- 
+
    
     
     // Return all customers
