@@ -46,5 +46,18 @@ angular.module('app').controller('customerCtrl', function($scope,  $stateParams,
       }        
         
       console.log(customerSrvc.allCustomers)
+
+
+
+      $scope.modalShown = false;
+     
+
+      $scope.toggleModal = function() {
+        $scope.modalShown = !$scope.modalShown;
+        console.log("Modal: "+$scope.modalShown)
+
+      };
+
+
     })
     

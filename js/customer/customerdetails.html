@@ -1,17 +1,51 @@
-<h2>Customer Details Page</h2>
+<h4><span ng-bind="customersDetails.id ? 'Edit Existing Customer' : 'Add New Customer'"></span></h4>
+
+
 <hr>
 <br>
-      
 
-<form name="editForm" ng-init="reset()" ng-submit="submitForm()">
-        Company Name: <input type="text" name="name" ng-model="customersDetails.name"><br>
-        Address: <input type="text" name="address" ng-model="address"><br>
-        City: <input type="text" name="city" ng-model="city"><br>
-        State: <input type="text" name="state" ng-model="state"><br>
-        Zip: <input type="text" name="zip" ng-model="zip"><br>
-        Phone: <input type="text" name="phone" ng-model="phone"><br>
-</form>
-        
+
+
+<div class="row">
+                <form class="col s12" ng-init="reset()" ng-submit="submitForm()">
+                        <div class="row">
+                    <div class="input-field col s12">
+                            <input id="name" type="text" ng-model="customersDetails.name" class="validate">
+                      <label for="name" class="active">Company</label>
+                </div>
+                    <div class="input-field col s12">
+                            <input id="address" type="text" class="validate" ng-model="address">
+                      <label for="address" class="active">Address</label>
+                </div>
+                  </div>
+                  
+                  <div class="row">
+                          <div class="input-field col s4">
+                      <input id="city" type="text" class="validate" ng-model="city">
+                      <label for="city" class="active">City</label>
+                </div>
+                 
+                <div class="input-field col s4">
+                      <input id="state" type="text" class="validate" ng-model="state">
+                      <label for="state" class="active">State</label>
+                </div>
+                  
+                    <div class="input-field col s4">
+                            <input id="zip" type="text" class="validate" ng-model="zip">
+                      <label for="zip" class="active">Zip</label>
+                </div>
+                </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                            <input id="phone" type="text" class="validate" ng-model="phone">
+                      <label for="phone" class="active">Phone</label>
+                </div>
+                  </div>
+                </div>
+                </form>
+              </div>
+
+
 
 <button ng-click="save(customersDetails.id,customersDetails.lock_version,customersDetails.name)">
         <span ng-show="customersDetails.id">Update Existing</span>
@@ -24,12 +58,28 @@
 <br>
 <br>
 <br>
-<p class = "small-text">Company ID: {{customersDetails.id}} and Lock Version {{customersDetails.lock_version}}</p>
-<p class = "small-text">Old/Unused/Not Working Things:</p>
+<p class = "small-text">Company ID: {{customersDetails.id}} <br>Lock Version: {{customersDetails.lock_version}}</p>
+<!-- <p class = "small-text">Old/Unused/Not Working Things:</p> -->
 
-<button ng-click ="updateCustomer(customersDetails.id,customersDetails.lock_version,customersDetails.name);">Update</button>
+<!-- <button ng-click ="updateCustomer(customersDetails.id,customersDetails.lock_version,customersDetails.name);">Update</button>
 
 <button ng-click ="addNewCustomer(customersDetails.name);">Save New</button>
 
 <button ui-sref="newcustomer()">Create New Customer</button>
-<a href="/#/customer/detail">Create New Customer</a>
+
+
+<hr> -->
+
+
+
+
+<!--       
+
+<form name="editForm" ng-init="reset()" ng-submit="submitForm()">
+        Company Name: <input type="text" name="name" ng-model="customersDetails.name" placeholder = "Company"><br>
+        Address: <input type="text" name="address" ng-model="address" placeholder = "Address"> <br>
+        City: <input type="text" name="city" ng-model="city" placeholder = "City">
+        State: <input type="text" name="state" ng-model="state" placeholder = "State">
+        Zip: <input type="text" name="zip" ng-model="zip" placeholder = "Zip">
+        Phone: <input type="text" name="phone" ng-model="phone" placeholder = "phone"><br>
+</form> -->

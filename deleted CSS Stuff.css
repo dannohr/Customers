@@ -1,0 +1,24 @@
+.nav-wrapper {
+    padding-right: 50px;
+    padding-bottom: 30px;
+    /* border-style: solid; */
+    border-bottom: solid;
+    border-color: #888888;
+    
+}
+
+.navbar{
+    padding: 20px 0;
+}
+.nav{
+    color: #888888;
+    font-family: Poppins,helvetica,arial,sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+    padding-bottom: 4px;
+    list-style-type: none;
+    float: right;
+    font-size: 14px;
+    
+}

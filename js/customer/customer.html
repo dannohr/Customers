@@ -8,15 +8,22 @@
 <button ng-click ="getAllCustomers()">Refresh All Customers</button>
 <button ui-sref="customerdetails()">Create New Customer</button>
 
+<modal-dialog show='modalShown' width='500px' height='30%'>
+  <span class = "modal-message">The delete functionaly is not working due to cross domain errors.</span> <br>
+  <img src="assets/warning.png" alt="">
+</modal-dialog>
+
 <div class="customer-row">
     
     <table class = "customer-search-table">
         <tr class = "customer-search-rows">
-            <th class = "customer-search-rows">Edit</th>
-            <th class = "customer-search-rows">Name</th>
+            <th class = "customer-search-rows"></th>
+            <th class = "customer-search-rows"></th>
+            <th class = "customer-search-rows">Company</th>
+            <th class = "customer-search-rows">Address</th>
             <th class = "customer-search-rows">City</th>
-            <th class = "customer-search-rows">State</th>
-            <th class = "customer-search-rows">Delete</th>
+            <th class = "customer-search-rows">Sate</th>
+            <th class = "customer-search-rows">Phone</th>
             <th class = "customer-search-rows">ID</th>
             <th class = "customer-search-rows">Lock Vers</th>
 
@@ -24,10 +31,12 @@
 
         <tr class = "customer-search-rows" ng-repeat="customer in customers | filter: {'name':  custsearch} | orderBy: 'name' ">
             <td class = "customer-search-rows"><img src="/assets/editicon.png" alt="" class = "edit-button" ui-sref="customerdetails({id: customer.id})"></td>
+            <td class = "customer-search-rows"><img src="/assets/deleteicon.png" alt="" class = "edit-button" ng-click='toggleModal()'></td>
             <td class = "customer-search-rows">{{ customer.name }}</td>
+            <td class = "customer-search-rows">{{ customer['main_location[street_address]'] }}</td>
             <td class = "customer-search-rows">{{ customer['main_location[town]'] }}</td>
             <td class = "customer-search-rows">{{ customer['main_location[county_province_state]'] }}</td>
-            <td class = "customer-search-rows"><img src="/assets/deleteicon.png" alt="" class = "edit-button" ng-click ="deleteCustomer(customer.id,customer.lock_version);"></td>
+            <td class = "customer-search-rows">{{ customer['main_location[telephone]'] }}</td>
             <td class = "customer-search-rows">{{ customer.id }}</td>
             <td class = "customer-search-rows">{{ customer.lock_version }}</td>
         </tr>
