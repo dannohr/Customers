@@ -10,41 +10,41 @@ angular
         $stateProvider
             .state("home", {
                 url: "/",
-                templateUrl: '/js/home/home.html',
+                templateUrl: 'js/home/home.html',
                 controller: 'homeCtrl'
             })
             .state("customer", {
                 url: "/customer/customer",   
-                templateUrl: '/js/customer/customer.html',
+                templateUrl: 'js/customer/customer.html',
                 controller: 'customerCtrl'
             })
 
             .state("customerdetails", {
                 url: "/customer/detail/:id",   
-                templateUrl: '/js/customer/customerdetails.html',
+                templateUrl: 'js/customer/customerdetails.html',
                 controller: 'custDetailsCtrl'
             })
 
             .state("newcustomer", {   
                 url: "/customer/new",   
-                templateUrl: '/js/customer/customerdetails.html',
+                templateUrl: 'js/customer/customerdetails.html',
                 controller: 'custDetailsCtrl'
             })
 
             .state("product", {
                 url: "/product/:product",   
-                templateUrl: '/js/product/product.html',
+                templateUrl: 'js/product/product.html',
                 controller: 'productCtrl'
             })
 
             .state("info", {
                 url: "/info",   
-                templateUrl: '/js/info/info.html'
+                templateUrl: 'js/info/info.html'
             })
 
             .state("map", {   //this isn't doing anything.
             url: "/map",   
-            templateUrl: '/js/map/map.html',
+            templateUrl: 'js/map/map.html',
             controller: 'mapCtrl'
         })
 
