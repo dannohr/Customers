@@ -25,7 +25,7 @@ angular
                 controller: 'custDetailsCtrl'
             })
 
-            .state("newcustomer", {   //this isn't doing anything.
+            .state("newcustomer", {   
                 url: "/customer/new",   
                 templateUrl: '/js/customer/customerdetails.html',
                 controller: 'custDetailsCtrl'
