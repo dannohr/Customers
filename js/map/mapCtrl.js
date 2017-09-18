@@ -25,7 +25,7 @@ angular.module('app').controller('mapCtrl', function($scope, $stateParams, custo
 
         for (var x = 0; x < cities.length; x++) {
 
-          $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+cities[x].city+'&sensor=false', null, function (data) {
+          $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address='+cities[x].city+'&sensor=false', null, function (data) {
 
               var p = data.results[0].geometry.location
               var latlng = new google.maps.LatLng(p.lat, p.lng);
