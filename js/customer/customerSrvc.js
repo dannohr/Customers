@@ -36,7 +36,7 @@ angular.module('app').service('customerSrvc', function($http) {
     // Return customers filtered by name
     this.getCustomers = function(filterStr) {
         console.log("Filter in service: " + filterNameHead + filterStr + filterNameTail)
-        return $http.get(baseUrl + apiKey + getColumns + filterNameHead + filterStr + filterNameTail).then(function(response){
+        return $http.get(baseUrl + apiKey + filterNameHead + filterStr + filterNameTail).then(function(response){
           self.customers = response.data
           return self.customers
       })
@@ -93,12 +93,6 @@ angular.module('app').service('customerSrvc', function($http) {
 
 
 
-
-
-
-
-
-
     var deleteCustomerBaseUrlHead = 'https://secure.workbooks.com/crm/organisations.api?api_key=49591-ebf97-35abc-82f3f-e2179-97b60-eb671-5832c&client=api&api_version[]=1&lock_version[]='
     var deleteCustomerBase2 = '&id[]='
     // var deleteCustomerBase3 = '&name[]='
@@ -127,36 +121,15 @@ angular.module('app').service('customerSrvc', function($http) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    var addUrl = 'https://secure.workbooks.com/crm/organisations.api?api_key=49591-ebf97-35abc-82f3f-e2179-97b60-eb671-5832c&client=api&api_version=1&name='    
-    // Add New Customer
-    this.addNewCustomer = function(name) {
-      console.log("Create New Customer: " + name + '(log from service)')
-       return $http.post(addUrl + name).then(function(response){
-          self.newCustomer = response
-          return self.newCustomer
-     })
-     
-
-
-
-
-
-  };
-
-
-
-
+      var addUrl = 'https://secure.workbooks.com/crm/organisations.api?api_key=49591-ebf97-35abc-82f3f-e2179-97b60-eb671-5832c&client=api&api_version=1&name='    
+      // Add New Customer
+      this.addNewCustomer = function(name) {
+        console.log("Create New Customer: " + name + '(log from service)')
+         return $http.post(addUrl + name).then(function(response){
+            self.newCustomer = response
+            return self.newCustomer
+       })
+   };
 
 
 

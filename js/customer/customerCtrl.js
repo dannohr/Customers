@@ -33,7 +33,7 @@ angular.module('app').controller('customerCtrl', function($scope,  $stateParams,
       $scope.getCustomers = function(custsearch) {
         customerSrvc.getCustomers(custsearch).then (function(response) {
           $scope.customers = response.data;
-          // console.log($scope.customers)
+          console.log($scope.customers)
         })
       }
 

@@ -43,13 +43,13 @@ angular.module('app').controller('custDetailsCtrl', function ($scope, $statePara
       console.log($scope.custForApi)
 
 
-        if(typeof id === 'undefined') {  //Will be undefined if there was not an existing customer to edit
-          customerSrvc.addNewCustomer($scope.customersDetails.name).then (function(response) {
-            $scope.newCustomer = response;
-            console.log(response)
-            console.log(response.data.data.id)
-            $scope.getCustomersDetails(response.data.data.id)
-          })
+      if(typeof id === 'undefined') {  //Will be undefined if there was not an existing customer to edit
+        customerSrvc.addNewCustomer($scope.customersDetails.name).then (function(response) {
+          $scope.newCustomer = response;
+          console.log(response)
+          console.log(response.data.data.id)
+          $scope.getCustomersDetails(response.data.data.id)
+        })
 
 
 

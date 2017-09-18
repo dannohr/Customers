@@ -1,15 +1,31 @@
-<h2>Customer Search Page</h2>
+<h4>Customer Search Page</h4>
 <hr>
 <br>
 
-<input type="text" name = "input" ng-model = "custsearch" placeholder = "Enter Customer Name">
+<input type="text" name = "input" ng-model = "custsearch" placeholder = "Filter Customer List">
 
-<button ng-click ="getCustomers(custsearch)">Search</button>
-<button ng-click ="getAllCustomers()">Refresh All Customers</button>
-<button ui-sref="customerdetails()">Create New Customer</button>
+<!-- <button ng-click ="getCustomers(custsearch)">Search</button> -->
 
-<modal-dialog show='modalShown' width='500px' height='30%'>
-  <span class = "modal-message">The delete functionaly is not working due to cross domain errors.</span> <br>
+<button class="btn waves-effect waves-light" ng-click ="getCustomers(custsearch)">Filter Data via API
+        <i class="material-icons right">search</i>
+</button>
+
+<!-- <button ng-click ="getAllCustomers()">Refresh All Customers</button> -->
+
+
+<button class="btn waves-effect waves-light" ng-click ="getAllCustomers()">Refresh All From API
+        <i class="material-icons right">autorenew</i>
+</button>
+
+<button class="btn waves-effect waves-light" ui-sref="customerdetails()">Create New Customer
+        <i class="material-icons right">person</i>
+</button>
+
+
+<!-- <button ui-sref="customerdetails()">Create New Customer</button> -->
+
+<modal-dialog show='modalShown' width='500px' height='35%'>
+  <span class = "modal-message">The delete functionaly is not working due API limitations when hosting page locally.</span> <br>
   <img src="assets/warning.png" alt="">
 </modal-dialog>
 
